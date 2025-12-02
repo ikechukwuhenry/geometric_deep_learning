@@ -38,6 +38,18 @@ if __name__ == "__main__":
     # Create GCN model
     gcn_model = GCN(input_dim, hidden_dim, output_dim, A)
 
+
+    # alternatively, you can directly test the GCNLayer as follows:
+    print("Testing GCN Model Layers:\n")
+    for idx, module in enumerate(gcn_model.children()):
+        print(f"Layer {idx}: {module}")
+
+    
+    for name, module in gcn_model.named_children():
+        print(f"Module Name: {name} \nModule Details: {module}")
+    
+    print("\n\n")
+
     # Example input feature matrix X (3 nodes with 3 features each)
     X = torch.tensor([[1., 2., 3.],
                       [4., 5., 6.],
